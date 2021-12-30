@@ -8,6 +8,10 @@ cfgSize = 5;
 
 //Einlesen der Konfiguration
 include <fontmachine.cfg>
+
+scale ([cfgGridSize/10,cfgGridSize/10])
+//Der Code ist für 150*150mm geschrieben
+//Mit Scale wird die Grösse gemäss cfgGridSize skaliert 
 {
     difference()
     //Auschneiden der Buchstaben (Module) aus der Grundplatte
