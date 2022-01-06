@@ -8,6 +8,7 @@ Use this software to convert an array of characters into a frontplate for a word
 ## Tool configuration
 The following software versions were used to develop this software:
 - OpenSCAD 2019.05 [openscad.org](https://openscad.org/downloads.html)
+- VS Code with OpenSCAD
 
 ## Usage with command line
 You can export the dxf file without opening OpenSCAD by using the following command:  
@@ -20,7 +21,7 @@ Example:
 "C:\Program Files\OpenSCAD\openscad.exe" -o "C:\Users\default\Desktop\export.dxf" "C:\Users\default\Documents\GitHub\wordclock-mech\fontmachine.scad"
 ```
 
-## Options in fontmachine.cfg
+## Options in config.cfg
 All characters in a single onedimensional array; 121 in total for an array of 11 * 11
 ```
 charArray = [
