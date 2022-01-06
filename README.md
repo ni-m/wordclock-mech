@@ -22,6 +22,7 @@ Example:
 ```
 
 ## Options in config.cfg
+Copy ```fm_config_default.cfg``` into the same folder and name it ```fm_config.cfg```. Feel free to change it afterwards.
 All characters in a single onedimensional array; 121 in total for an array of 11 * 11
 ```
 charArray = [

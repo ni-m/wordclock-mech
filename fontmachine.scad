@@ -13,7 +13,9 @@ cfgFont = "Verdana";
 cfgSize = 5;
 
 //read config file
-include <fm_config.cfg>
+echo("Copy fm_config_default.cfg and name it fm_config.cfg");
+include <fm_config_default.cfg>     // load default config file
+include <fm_config.cfg>             // override default config file   
 
 //this code generates a frontplate with 150 mm* 150 mm
 //scale according to cfgGridSize, base gridSize is 10mm, adjusted if needed
@@ -68,6 +70,7 @@ scale ([cfgGridSize/10,cfgGridSize/10])
         translate([50,-60])     circle(0.5);
     }
 }
+echo("Finished");
 
 //Definition of each char
 module charA() 
