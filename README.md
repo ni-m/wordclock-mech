@@ -21,7 +21,7 @@ Example:
 "C:\Program Files\OpenSCAD\openscad.exe" -o "C:\Users\default\Desktop\export.dxf" "C:\Users\default\Documents\GitHub\wordclock-mech\fontmachine.scad"
 ```
 
-## Options in config.cfg
+## Options in fm_config.cfg (make a local copy)
 Copy ```fm_config_default.cfg``` into the same folder and name it ```fm_config.cfg```. Feel free to change it afterwards.  
 All characters in a single onedimensional array; 121 in total for an array of 11 * 11
 ```
