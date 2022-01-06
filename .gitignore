@@ -1,3 +1,6 @@
 
 *.dxf
 *.svg
+
+# Prevents the user modified fm_config.cfg from being uploaded
+fm_config.cfg

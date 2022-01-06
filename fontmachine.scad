@@ -1,20 +1,28 @@
-//Definition der Auflösung
+// @file fontmachine.scad
+// @author niederberger & ni-m
+// @brief  This file reads a config file and renders an openSCAD file acc to this. 
+// @brief  It starts with a baseplate and cuts each char out of this plate
+// @brief  If the char has some internal shapes (e.g. O, A, P...), a corresponding beam will be added (if requested via config.cfg)
+
+//resolution, used for dxf and svg export
 $fa = 1;
 $fs = 0.3;
 
-//Font und Grösse - nicht verändern!
+//font and size; do not change!
 cfgFont = "Verdana";
 cfgSize = 5;
 
-//Einlesen der Konfiguration
-include <fontmachine.cfg>
+//read config file
+echo("Copy fm_config_default.cfg and name it fm_config.cfg");
+include <fm_config_default.cfg>     // load default config file
+include <fm_config.cfg>             // override default config file   
 
+//this code generates a frontplate with 150 mm* 150 mm
+//scale according to cfgGridSize, base gridSize is 10mm, adjusted if needed
 scale ([cfgGridSize/10,cfgGridSize/10])
-//Der Code ist für 150*150mm geschrieben
-//Mit Scale wird die Grösse gemäss cfgGridSize skaliert 
 {
     difference()
-    //Auschneiden der Buchstaben (Module) aus der Grundplatte
+    // cut each char out of the baseplate
     {
         square(150, center = true);
         for (y=[0:1:10])
@@ -55,159 +63,197 @@ scale ([cfgGridSize/10,cfgGridSize/10])
                 }
             }
         }
-        //Auschneiden der vier Punkte am unteren Rand
+        //coutout of the four points in the lower part (used for minutes)
         translate([-50,-60])    circle(0.5);
         translate([-40,-60])    circle(0.5);
         translate([40,-60])     circle(0.5);
         translate([50,-60])     circle(0.5);
     }
 }
+echo("Finished");
 
-//Definition der einzelnen Buchstaben
-
+//Definition of each char
 module charA() 
-{   difference()
-    {   text("A",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    difference()
+    {   
+        text("A",font=cfgFont, , size = cfgSize, halign="center", valign="center");
         if (cfgCutOut){translate ([0.825,-2]) rotate (19.5)square([0.6,2]);}
     }
 }
 
 module charB() 
-{   difference()
-    {   text("B",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    difference()
+    {   
+        text("B",font=cfgFont, , size = cfgSize, halign="center", valign="center");
         if (cfgCutOut) translate ([1.8,-3]) rotate (45) square([0.6,2]);
         if (cfgCutOut) translate ([-0.975,-0.2]) rotate (0) square([0.6,1.2]);
     }
 }
 
 module charC() 
-{   text("C",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    text("C",font=cfgFont, , size = cfgSize, halign="center", valign="center");
 }
 
 module charD() 
-{   difference()
-    {   text("D",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    difference()
+    {   
+        text("D",font=cfgFont, , size = cfgSize, halign="center", valign="center");
         if (cfgCutOut) translate ([-1.265,-3]) rotate (0) square([0.6,1.2]);
     }
 }
 
 module charE() 
-{   text("E",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    text("E",font=cfgFont, , size = cfgSize, halign="center", valign="center");
 }
 
 module charF() 
-{   text("F",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    text("F",font=cfgFont, , size = cfgSize, halign="center", valign="center");
 }
 
 module charG() 
-{   text("G",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    text("G",font=cfgFont, , size = cfgSize, halign="center", valign="center");
 }
 
 module charH() 
-{   text("H",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    text("H",font=cfgFont, , size = cfgSize, halign="center", valign="center");
 }
 
 module charI() 
-{   text("I",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    text("I",font=cfgFont, , size = cfgSize, halign="center", valign="center");
 }
 
 module charJ() 
-{   text("J",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    text("J",font=cfgFont, , size = cfgSize, halign="center", valign="center");
 }
 
 module charK() 
-{   text("K",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    text("K",font=cfgFont, , size = cfgSize, halign="center", valign="center");
 }
 
 module charL() 
-{   text("L",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    text("L",font=cfgFont, , size = cfgSize, halign="center", valign="center");
 }
 
 module charM() 
-{   text("M",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    text("M",font=cfgFont, , size = cfgSize, halign="center", valign="center");
 }
 
 module charN() 
-{   text("N",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    text("N",font=cfgFont, , size = cfgSize, halign="center", valign="center");
 }
 
 module charO() 
-{   difference()
-    {   text("O",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    difference()
+    {   
+        text("O",font=cfgFont, , size = cfgSize, halign="center", valign="center");
         if (cfgCutOut) translate ([0.6,1.8]) rotate (-45) square([0.6,2]);
         if (cfgCutOut) translate ([-2,-2]) rotate (-45) square([0.6,2]);
     }
 }
 
 module charQ() 
-{   difference()
-    {   translate([0, -0.5]) text("Q",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    difference()
+    {   
+        translate([0, -0.5]) text("Q",font=cfgFont, , size = cfgSize, halign="center", valign="center");
         if (cfgCutOut) translate ([0.6,1.8]) rotate (-45) square([0.6,2]);
         if (cfgCutOut) translate ([-2,-2]) rotate (-45) square([0.6,2]);
     }
 }
 
 module charP() 
-{   difference()
-    {   text("P",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    difference()
+    {   
+        text("P",font=cfgFont, , size = cfgSize, halign="center", valign="center");
         if (cfgCutOut) translate ([-0.695,-1]) rotate (0) square([0.6,1.2]);
     }
 }
 
 module charR() 
-{   difference()
-    {   text("R",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    difference()
+    {   
+        text("R",font=cfgFont, , size = cfgSize, halign="center", valign="center");
         if (cfgCutOut) translate ([-1.008,-1]) rotate (0) square([0.6,1.2]);
     }
 }
 
 module charS() 
-{   text("S",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    text("S",font=cfgFont, , size = cfgSize, halign="center", valign="center");
 }
 
 module charT() 
-{   text("T",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    text("T",font=cfgFont, , size = cfgSize, halign="center", valign="center");
 }
 
 module charU() 
-{   text("U",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    text("U",font=cfgFont, , size = cfgSize, halign="center", valign="center");
 }
 
 module charV() 
-{   text("V",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    text("V",font=cfgFont, , size = cfgSize, halign="center", valign="center");
 }
 
 module charW() 
-{   text("W",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    text("W",font=cfgFont, , size = cfgSize, halign="center", valign="center");
 }
 
 module charX() 
-{   text("X",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    text("X",font=cfgFont, , size = cfgSize, halign="center", valign="center");
 }
 
 module charY() 
-{   text("Y",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    text("Y",font=cfgFont, , size = cfgSize, halign="center", valign="center");
 }
 
 module charZ() 
-{   text("Z",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    text("Z",font=cfgFont, , size = cfgSize, halign="center", valign="center");
 }
 
 module charAe() 
-{   difference()
-    {   translate([0, 0.5]) text("Ä",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    difference()
+    {   
+        translate([0, 0.5]) text("Ä",font=cfgFont, , size = cfgSize, halign="center", valign="center");
         if (cfgCutOut){translate ([0.78,-2]) rotate (19.5)square([0.6,2]);}
     }
 }
 
 module charOe() 
-{   difference()
-    {   translate([0, 0.5]) text("Ö",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    difference()
+    {   
+        translate([0, 0.5]) text("Ö",font=cfgFont, , size = cfgSize, halign="center", valign="center");
         if (cfgCutOut) translate ([0.6,1.8]) rotate (-45) square([0.6,2]);
         if (cfgCutOut) translate ([-2,-2]) rotate (-45) square([0.6,2]);
     }
 }
 
 module charUe() 
-{   translate([0, 0.5]) text("Ü",font=cfgFont, , size = cfgSize, halign="center", valign="center");
+{   
+    translate([0, 0.5]) text("Ü",font=cfgFont, , size = cfgSize, halign="center", valign="center");
 }
