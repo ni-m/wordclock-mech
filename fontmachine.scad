@@ -78,7 +78,7 @@ module charA()
     difference()
     {   
         text("A",font=cfgFont, , size = cfgSize, halign="center", valign="center");
-        if (cfgCutOut){translate ([0.825,-2]) rotate (19.5)square([0.6,2]);}
+        if (cfgCutOut){translate ([0.401,-2]) rotate (19.5)square([1,2]);}
     }
 }
 
@@ -87,8 +87,8 @@ module charB()
     difference()
     {   
         text("B",font=cfgFont, , size = cfgSize, halign="center", valign="center");
-        if (cfgCutOut) translate ([1.8,-3]) rotate (45) square([0.6,2]);
-        if (cfgCutOut) translate ([-0.975,-0.2]) rotate (0) square([0.6,1.2]);
+        if (cfgCutOut) translate ([1.8,-3]) rotate (45) square([1,2]);
+        if (cfgCutOut) translate ([-0.975,-0.2]) rotate (0) square([1,1.2]);
     }
 }
 
@@ -102,7 +102,7 @@ module charD()
     difference()
     {   
         text("D",font=cfgFont, , size = cfgSize, halign="center", valign="center");
-        if (cfgCutOut) translate ([-1.265,-3]) rotate (0) square([0.6,1.2]);
+        if (cfgCutOut) translate ([-1.265,-3]) rotate (0) square([1,1.2]);
     }
 }
 
@@ -161,8 +161,8 @@ module charO()
     difference()
     {   
         text("O",font=cfgFont, , size = cfgSize, halign="center", valign="center");
-        if (cfgCutOut) translate ([0.6,1.8]) rotate (-45) square([0.6,2]);
-        if (cfgCutOut) translate ([-2,-2]) rotate (-45) square([0.6,2]);
+        if (cfgCutOut) translate ([0.6,1.8]) rotate (-45) square([1,2]);
+        if (cfgCutOut) translate ([-2,-2]) rotate (-45) square([1,2]);
     }
 }
 
@@ -171,8 +171,8 @@ module charQ()
     difference()
     {   
         translate([0, -0.5]) text("Q",font=cfgFont, , size = cfgSize, halign="center", valign="center");
-        if (cfgCutOut) translate ([0.6,1.8]) rotate (-45) square([0.6,2]);
-        if (cfgCutOut) translate ([-2,-2]) rotate (-45) square([0.6,2]);
+        if (cfgCutOut) translate ([0.6,1.8]) rotate (-45) square([1,2]);
+        if (cfgCutOut) translate ([-2,-2]) rotate (-45) square([1,2]);
     }
 }
 
@@ -181,7 +181,7 @@ module charP()
     difference()
     {   
         text("P",font=cfgFont, , size = cfgSize, halign="center", valign="center");
-        if (cfgCutOut) translate ([-0.695,-1]) rotate (0) square([0.6,1.2]);
+        if (cfgCutOut) translate ([-0.695,-1]) rotate (0) square([1,1.2]);
     }
 }
 
@@ -190,7 +190,7 @@ module charR()
     difference()
     {   
         text("R",font=cfgFont, , size = cfgSize, halign="center", valign="center");
-        if (cfgCutOut) translate ([-1.008,-1]) rotate (0) square([0.6,1.2]);
+        if (cfgCutOut) translate ([-1.008,-1]) rotate (0) square([1,1.2]);
     }
 }
 
@@ -239,7 +239,7 @@ module charAe()
     difference()
     {   
         translate([0, 0.5]) text("Ä",font=cfgFont, , size = cfgSize, halign="center", valign="center");
-        if (cfgCutOut){translate ([0.78,-2]) rotate (19.5)square([0.6,2]);}
+        if (cfgCutOut){translate ([0.352,-2]) rotate (19.5)square([1,2]);}
     }
 }
 
@@ -248,8 +248,8 @@ module charOe()
     difference()
     {   
         translate([0, 0.5]) text("Ö",font=cfgFont, , size = cfgSize, halign="center", valign="center");
-        if (cfgCutOut) translate ([0.6,1.8]) rotate (-45) square([0.6,2]);
-        if (cfgCutOut) translate ([-2,-2]) rotate (-45) square([0.6,2]);
+        if (cfgCutOut) translate ([0.6,1.8]) rotate (-45) square([1,2]);
+        if (cfgCutOut) translate ([-2,-2]) rotate (-45) square([1,2]);
     }
 }
 
