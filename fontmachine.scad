@@ -5,8 +5,8 @@
 // @brief  If the char has some internal shapes (e.g. O, A, P...), a corresponding beam will be added (if requested via config.cfg)
 
 //resolution, used for dxf and svg export
-$fa = 1;
-$fs = 0.3;
+$fa= $preview ? 32 : 1;
+$fs= $preview ? 10 : 0.01;
 
 //font and size; do not change!
 cfgFont = "Verdana";
@@ -15,7 +15,7 @@ cfgSize = 5;
 //read config file
 echo("Copy fm_config_default.cfg and name it fm_config.cfg");
 include <fm_config_default.cfg>     // load default config file
-include <fm_config.cfg>             // override default config file   
+include <fm_config.cfg>             // override default config file 
 
 //this code generates a frontplate with 150 mm* 150 mm
 //scale according to cfgGridSize, base gridSize is 10mm, adjusted if needed
